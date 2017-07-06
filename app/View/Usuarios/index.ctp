@@ -11,62 +11,56 @@
 
 
 
-		<!-- TABELA -->
-            <div class="col-lg-12">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Lista dos Usuários Cadastrados Atualmente
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-															<thead>
-																<tr>
-																	<th>ID</th>
-																	<th>Nome</th>
-																	<th>Documento</th>
-																	<th>Telefone</th>
-																	<th>Desativado</th>
-																	<th>Usuário</th>
-																	<th>Papel</th>
-																	<th>Senha</th>
-																	<th class="actions"></th>
-																</tr>
-															</thead>
-															<tbody>
-															<?php foreach ($usuarios as $usuario): ?>
-																<tr>
-																	<td><?php echo h($usuario['Usuario']['id']); ?>&nbsp;</td>
-																	<td><?php echo h($usuario['Usuario']['nome']); ?>&nbsp;</td>
-																	<td><?php echo h($usuario['Usuario']['documento']); ?>&nbsp;</td>
-																	<td><?php echo h($usuario['Usuario']['telefone']); ?>&nbsp;</td>
-																	<td><?php echo h($usuario['Usuario']['desativado']); ?>&nbsp;</td>
-																	<td><?php echo h($usuario['Usuario']['usuario']); ?>&nbsp;</td>
-																	<td><?php echo h($usuario['Usuario']['papel']); ?>&nbsp;</td>
-																	<td><?php echo h($usuario['Usuario']['senha']); ?>&nbsp;</td>
-																	<td class="actions">
-																		<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>  Visualizar ||', array('action' => 'view', $usuario['Usuario']['id']), array('escape' => false)); ?>
-																		<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Editar ||', array('action' => 'edit', $usuario['Usuario']['id']), array('escape' => false)); ?>
-																		<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> Excluir', array('action' => 'delete', $usuario['Usuario']['id']), array('escape' => false), __('Deseja excluir %s?', $usuario['Usuario']['nome'])); ?>
-																	</td>
-																</tr>
-															<?php endforeach; ?>
-															</tbody>
-                            </table>
+	<!-- TABELA -->
+	<div class="col-lg-12">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Lista dos Usuários Cadastrados Atualmente
+				</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Telefone</th>
+								<th>Desativado</th>
+								<th>Usuário</th>
+								<th>Papel</th>
+								<th class="actions"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($usuarios as $usuario): ?>
+								<tr>
+									<td><?php echo h($usuario['Usuario']['nome']); ?>&nbsp;</td>
+									<td><?php echo h($usuario['Usuario']['telefone']); ?>&nbsp;</td>
+									<td><?php echo h($usuario['Usuario']['desativado']); ?>&nbsp;</td>
+									<td><?php echo h($usuario['Usuario']['usuario']); ?>&nbsp;</td>
+									<td><?php echo h($usuario['Usuario']['papel']); ?>&nbsp;</td>
+									<td class="actions">
+										<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>  Visualizar ||', array('action' => 'view', $usuario['Usuario']['id']), array('escape' => false)); ?>
+										<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Editar ||', array('action' => 'edit', $usuario['Usuario']['id']), array('escape' => false)); ?>
+										<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> Excluir', array('action' => 'delete', $usuario['Usuario']['id']), array('escape' => false), __('Deseja excluir o usuário %s?', $usuario['Usuario']['nome'])); ?>
+									</td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
 
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<!-- /.panel -->
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
 
 
 
 
-	</div><!-- end row -->
+</div><!-- end row -->
 
 
 </div><!-- end containing of content -->

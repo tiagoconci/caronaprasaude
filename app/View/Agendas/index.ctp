@@ -11,26 +11,8 @@
 
 
 	<div class="row">
-
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Agenda'), array('action' => 'add'), array('escape' => false)); ?></li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Destinos'), array('controller' => 'destinos', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Destino'), array('controller' => 'destinos', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Paradas'), array('controller' => 'paradas', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Parada'), array('controller' => 'paradas', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div><!-- end body -->
-				</div><!-- end panel -->
-			</div><!-- end actions -->
-		</div><!-- end col md 3 -->
-
 		<div class="col-md-9">
-			<table cellpadding="0" cellspacing="0" class="table table-striped">
+			<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -38,6 +20,7 @@
 						<th><?php echo $this->Paginator->sort('data'); ?></th>
 						<th><?php echo $this->Paginator->sort('hora'); ?></th>
 						<th><?php echo $this->Paginator->sort('capacidade'); ?></th>
+						<th><?php echo $this->Paginator->sort('aberta'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -49,32 +32,16 @@
 						<td><?php echo h($agenda['Agenda']['data']); ?>&nbsp;</td>
 						<td><?php echo h($agenda['Agenda']['hora']); ?>&nbsp;</td>
 						<td><?php echo h($agenda['Agenda']['capacidade']); ?>&nbsp;</td>
+						<td><?php echo h($agenda['Agenda']['aberta']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $agenda['Agenda']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $agenda['Agenda']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $agenda['Agenda']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $agenda['Agenda']['id'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span> Visualizar ||', array('action' => 'view', $agenda['Agenda']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Editar ||', array('action' => 'edit', $agenda['Agenda']['id']), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> Excluir', array('action' => 'delete', $agenda['Agenda']['id']), array('escape' => false), __('Deseja excluir a agenda %s, %s Hs?', $agenda['Agenda']['cidade'], $agenda['Agenda']['hora'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>
 			</table>
-
-			<p>
-				<small><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?></small>
-			</p>
-
-			<?php
-			$params = $this->Paginator->params();
-			if ($params['pageCount'] > 1) {
-			?>
-			<ul class="pagination pagination-sm">
-				<?php
-					echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
-					echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
-					echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
-				?>
-			</ul>
-			<?php } ?>
 
 		</div> <!-- end col md 9 -->
 	</div><!-- end row -->

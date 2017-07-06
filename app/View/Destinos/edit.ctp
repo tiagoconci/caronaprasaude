@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Edit Destino'); ?></h1>
+				<h1><?php echo __('Editar Destino'); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -11,22 +11,6 @@
 
 
 	<div class="row">
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-
-																<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete'), array('action' => 'delete', $this->Form->value('Destino.id')), array('escape' => false), __('Are you sure you want to delete # %s?', $this->Form->value('Destino.id'))); ?></li>
-																<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Destinos'), array('action' => 'index'), array('escape' => false)); ?></li>
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Paradas'), array('controller' => 'paradas', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Parada'), array('controller' => 'paradas', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div>
-					</div>
-				</div>			
-		</div><!-- end col md 3 -->
 		<div class="col-md-9">
 			<?php echo $this->Form->create('Destino', array('role' => 'form')); ?>
 
@@ -37,13 +21,13 @@
 					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('telefone', array('class' => 'form-control', 'placeholder' => 'Telefone'));?>
+					<?php echo $this->Form->input('telefone', array('class' => 'form-control', 'placeholder' => 'Telefone', 'type' => 'text'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('endereco', array('class' => 'form-control', 'placeholder' => 'Endereco'));?>
+					<?php echo $this->Form->input('endereco', array('class' => 'form-control', 'label' => 'Endereço', 'placeholder' => 'Endereço'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('numero', array('class' => 'form-control', 'placeholder' => 'Numero'));?>
+					<?php echo $this->Form->input('numero', array('class' => 'form-control', 'label' => 'Número', 'placeholder' => 'Número', 'type' => 'text'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('complemento', array('class' => 'form-control', 'placeholder' => 'Complemento'));?>
@@ -52,11 +36,25 @@
 					<?php echo $this->Form->input('bairro', array('class' => 'form-control', 'placeholder' => 'Bairro'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('cidade', array('class' => 'form-control', 'placeholder' => 'Cidade'));?>
+					<?php echo $this->Form->input('cidade', array('label' => 'Cidade', 'class' => "form-control",
+					'options' => array(
+						'Caxias do Sul' => 'Caxias do Sul',
+						'Porto Alegre' => 'Porto Alegre',
+					),
+				));?>
+			</div>
+			<br>
+			<br>
+			<div class="form-group">
+				<div class="form-group col-md-2">
+					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-primary btn-lg')); ?>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
+				<div class="form-group col-md-2">
+					<?php echo $this->Html->link('Voltar',
+					array('controller' => 'destinos', 'action' => "index"),
+					array('class' => "btn btn-danger btn-lg" )); ?>
 				</div>
+			</div>
 
 			<?php echo $this->Form->end() ?>
 

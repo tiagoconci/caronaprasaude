@@ -13,8 +13,8 @@ class AgendasControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.agenda',
-		'app.destino',
 		'app.parada',
+		'app.destino',
 		'app.paciente',
 		'app.acompanhante'
 	);

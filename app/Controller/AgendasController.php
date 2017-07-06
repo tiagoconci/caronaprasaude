@@ -55,8 +55,6 @@ class AgendasController extends AppController {
 				$this->Session->setFlash(__('The agenda could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-error'));
 			}
 		}
-		$destinos = $this->Agenda->Destino->find('list');
-		$this->set(compact('destinos'));
 	}
 
 /**
@@ -81,8 +79,6 @@ class AgendasController extends AppController {
 			$options = array('conditions' => array('Agenda.' . $this->Agenda->primaryKey => $id));
 			$this->request->data = $this->Agenda->find('first', $options);
 		}
-		$destinos = $this->Agenda->Destino->find('list');
-		$this->set(compact('destinos'));
 	}
 
 /**

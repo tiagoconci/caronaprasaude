@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Add Agenda'); ?></h1>
+				<h1><?php echo __('Abrir Agenda'); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -11,44 +11,52 @@
 
 
 	<div class="row">
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-
-																<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Agendas'), array('action' => 'index'), array('escape' => false)); ?></li>
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Destinos'), array('controller' => 'destinos', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Destino'), array('controller' => 'destinos', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Paradas'), array('controller' => 'paradas', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Parada'), array('controller' => 'paradas', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div>
-					</div>
-				</div>			
-		</div><!-- end col md 3 -->
 		<div class="col-md-9">
 			<?php echo $this->Form->create('Agenda', array('role' => 'form')); ?>
 
-				<div class="form-group">
-					<?php echo $this->Form->input('cidade', array('class' => 'form-control', 'placeholder' => 'Cidade'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('data', array('class' => 'form-control', 'placeholder' => 'Data'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('hora', array('class' => 'form-control', 'placeholder' => 'Hora'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('capacidade', array('class' => 'form-control', 'placeholder' => 'Capacidade'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
-				</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('cidade', array('label' => 'Cidade', 'class' => "form-control",
+				'options' => array(
+					'Caxias do Sul' => 'Caxias do Sul',
+					'Porto Alegre' => 'Porto Alegre',
+				),
+			));?>
+		</div>
+		<div class="form-group">
+			<?php echo $this->Form->input('data', array('class' => 'form-control', 'placeholder' => 'Data', 'id' => 'meses'));?>
+		</div>
+		<div class="form-group">
+			<?php echo $this->Form->input('hora', array('class' => 'form-control', 'label' => 'Hora',
+			'options' => array(
+				'05:00:00' => '05:00:00',
+				'06:00:00' => '06:00:00',
+				'11:30:00' => '11:30:00',
+			),
+		));?>
+	</div>
+	<div class="form-group">
+		<?php echo $this->Form->input('capacidade', array('class' => 'form-control', 'placeholder' => 'Capacidade'));?>
+	</div>
+	<br>
+	<br>
+	<div class="form-group">
+		<?php echo $this->Form->input('aberta', array('class' => 'form-control', 'placeholder' => 'Aberta'));?>
+	</div>
+	<br>
+	<br>
+	<div class="form-group">
+		<div class="form-group col-md-2">
+			<?php echo $this->Form->submit(__('Cadastrar'), array('class' => 'btn btn-primary btn-lg')); ?>
+		</div>
+		<div class="form-group col-md-2">
+			<?php echo $this->Html->link('Voltar',
+			array('controller' => 'agendas', 'action' => "index"),
+			array('class' => "btn btn-danger btn-lg" )); ?>
+		</div>
+	</div>
 
-			<?php echo $this->Form->end() ?>
+	<?php echo $this->Form->end() ?>
 
-		</div><!-- end col md 12 -->
-	</div><!-- end row -->
+</div><!-- end col md 12 -->
+</div><!-- end row -->
 </div>

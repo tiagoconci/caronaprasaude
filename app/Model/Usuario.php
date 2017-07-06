@@ -65,7 +65,7 @@ class Usuario extends AppModel {
 		'papel' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
-				'inList', ['admin','author'],
+				'inList', ['coordenador','motorista', 'secretario'],
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

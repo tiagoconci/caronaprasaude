@@ -418,6 +418,55 @@
     <script src="/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
+    <script>
+               $(document).ready(function () {
+                   otable1 = $('#dataTables').dataTable( {
+                       "language": {
+                           "emptyTable":     "Não há dados disponíveis na tabela",
+                           "info":           "Mostrando _START_ para _END_ de _TOTAL_ ",
+                           "infoEmpty":      "Mostrando 0-0 de 0 entradas",
+                           "infoFiltered":   "(filtrada de _MAX_ entradas totais)",
+                           "infoPostFix":    "",
+                           "thousands":      ",",
+                           "lengthMenu":     "Mostrar _MENU_ entradas",
+                           "loadingRecords": "Carregando...",
+                           "processing":     "Processando...",
+                           "search":         "Pesquisar: ",
+                           "zeroRecords":    "Nenhum registro correspondente encontrado",
+                           "paginate": {
+                               "first":      "Primeiro",
+                               "last":       "Último",
+                               "next":       "Póximo",
+                               "previous":   "Anterior"
+                           },
+                       },
+
+                   })});
+
+                   (document).ready(function () {
+                       otable1 = $('#meses').date( {
+                           "language": {
+                               "january":     "Janeiro",
+                               "february":           "Fevereiro ",
+                               "march":      "Março",
+                               "april":   "Abril",
+                               "may":    "Maio",
+                               "june":      "Junho",
+                               "july":     "Julho",
+                               "august": "Agosto",
+                               "setember":     "Setembro",
+                               "october":         "Outubro ",
+                               "november":    "Novembro",
+                               "december": "Dezembro"
+                           },
+
+                       })});
+
+
+
+
+        </script>
+
     <!-- Custom Theme JavaScript -->
     <script src="/dist/js/sb-admin-2.js"></script>
 

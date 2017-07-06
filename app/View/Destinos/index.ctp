@@ -17,7 +17,7 @@
 							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-									<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+									<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
 										<thead>
 											<tr>
 												<th><?php echo $this->Paginator->sort('nome'); ?></th>
@@ -39,7 +39,7 @@
 												<td class="actions">
 													<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span> Visualizar ||', array('action' => 'view', $destino['Destino']['id']), array('escape' => false)); ?>
 													<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Editar ||', array('action' => 'edit', $destino['Destino']['id']), array('escape' => false)); ?>
-													<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> Excluir', array('action' => 'delete', $destino['Destino']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $destino['Destino']['id'])); ?>
+													<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> Excluir', array('action' => 'delete', $destino['Destino']['id']), array('escape' => false), __('Deseja excluir o destino %s?', $destino['Destino']['nome'])); ?>
 												</td>
 											</tr>
 										<?php endforeach; ?>
@@ -53,8 +53,4 @@
 			</div>
 			<!-- /.col-lg-12 -->
 	</div>
-
-
-
-
 </div><!-- end containing of content -->

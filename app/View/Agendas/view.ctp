@@ -8,28 +8,7 @@
 	</div>
 
 	<div class="row">
-
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit Agenda'), array('action' => 'edit', $agenda['Agenda']['id']), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete Agenda'), array('action' => 'delete', $agenda['Agenda']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $agenda['Agenda']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Agendas'), array('action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Agenda'), array('action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Destinos'), array('controller' => 'destinos', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Destino'), array('controller' => 'destinos', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Paradas'), array('controller' => 'paradas', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Parada'), array('controller' => 'paradas', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div><!-- end body -->
-				</div><!-- end panel -->
-			</div><!-- end actions -->
-		</div><!-- end col md 3 -->
-
-		<div class="col-md-9">			
+		<div class="col-md-6">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<tbody>
 				<tr>
@@ -67,15 +46,29 @@
 			&nbsp;
 		</td>
 </tr>
+<tr>
+		<th><?php echo __('Aberta'); ?></th>
+		<td>
+			<?php echo h($agenda['Agenda']['aberta']); ?>
+			&nbsp;
+		</td>
+</tr>
 				</tbody>
 			</table>
 
 		</div><!-- end col md 9 -->
 
 	</div>
+	<br>
+	<br>
+	<div class="form-group col-md-2">
+		<?php echo $this->Html->link('Voltar',
+		array('controller' => 'agendas', 'action' => "index"),
+		array('class' => "btn btn-danger btn-lg" )); ?>
+	</div>
 </div>
 
-<div class="related row">
+<!--
 	<div class="col-md-12">
 	<h3><?php echo __('Related Paradas'); ?></h3>
 	<?php if (!empty($agenda['Parada'])): ?>
@@ -113,10 +106,8 @@
 	<?php endforeach; ?>
 	</tbody>
 	</table>
-<?php endif; ?>
+<?php endif; ?> -->
 
-	<div class="actions">
-		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Parada'), array('controller' => 'paradas', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-	</div>
+
 	</div><!-- end col md 12 -->
 </div>

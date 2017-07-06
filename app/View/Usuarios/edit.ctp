@@ -28,19 +28,37 @@
 					<?php echo $this->Form->input('telefone', array('class' => 'form-control', 'placeholder' => 'Telefone', 'type' => 'text'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('desativado', array('class' => 'form-control', 'placeholder' => 'Desativado'));?>
+					<?php echo $this->Form->input('usuario', array('label' => 'Usuário','class' => 'form-control', 'placeholder' => 'Usuario'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('usuario', array('class' => 'form-control', 'placeholder' => 'Usuario'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('papel', array('class' => 'form-control', 'placeholder' => 'Papel'));?>
+					<?php echo $this->Form->input('papel', array('label' => 'Papel', 'class' => "form-control",
+                                    'options' => array(
+                                        'coordenador' => 'Coordenador',
+                                        'motorista' => 'Motorista',
+                                        'secretario' => 'Secretário',
+                                        ),
+                                    ));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('senha', array('class' => 'form-control', 'placeholder' => 'Senha', 'type' => 'password'));?>
 				</div>
+				<br>
 				<div class="form-group">
-					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>
+					<?php echo $this->Form->input('desativado', array('class' => 'form-control', 'placeholder' => 'Desativado'));?>
+				</div>
+				<br>
+				<br>
+				<br>
+				<div class="form-group">
+					<div class="form-group col-md-2">
+                      <?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-primary btn-lg')); ?>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <?php echo $this->Html->link('Voltar',
+                            array('controller' => 'usuarios', 'action' => "index"),
+                            array('class' => "btn btn-danger btn-lg" )); ?>
+                    </div>
+
 				</div>
 
 			<?php echo $this->Form->end() ?>

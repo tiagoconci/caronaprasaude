@@ -76,6 +76,7 @@ class Destino extends AppModel {
 		'cidade' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
+				'inList', ['Caxias do Sul','Porto Alegre'],
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
